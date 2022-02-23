@@ -1,0 +1,16 @@
+def sortedSquaredArray(array):
+	sortedSquares =[ 0 for _ in array]
+	leftIdx =0
+	rightIdx = len(array) - 1
+	
+	for idx in reversed(range(len(array))):
+		smallerValue = array[leftIdx]
+		largerValue = array[rightIdx]
+		
+		if abs(smallerValue) > abs(largerValue):
+			sortedSquares[idx] = smallerValue * smallerValue
+			leftIdx += 1
+		else:
+			sortedSquares[idx] = largerValue * largerValue
+			rightIdx -= 1
+	return sortedSquares
